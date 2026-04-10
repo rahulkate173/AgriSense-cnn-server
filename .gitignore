@@ -17,7 +17,6 @@ best_efficientnet.pth
 
 # uv Package Manager
 .uv/
-uv.lock
 
 # OS Files
 .DS_Store
