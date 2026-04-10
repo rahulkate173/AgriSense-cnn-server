@@ -9,7 +9,7 @@ WORKDIR /app
 
 # Enable bytecode compilation
 ENV UV_COMPILE_BYTECODE=1
-ENV UV_PYTHON_PREFERENCE=only-binary
+# ENV UV_PYTHON_PREFERENCE=only-binary   # ← remove this line
 
 # Copy project files
 COPY pyproject.toml uv.lock .
@@ -22,8 +22,8 @@ RUN uv sync --frozen --no-cache --python 3.10 && \
 # Copy the rest of the application
 COPY . .
 
-# Expose the port (optional on Render; they use $PORT internally)
+# Expose the port
 EXPOSE 8000
 
-# Start the application, respecting $PORT
+# Start the application
 CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "${PORT:-8000}"]
