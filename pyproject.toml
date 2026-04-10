@@ -1,0 +1,20 @@
+[project]
+name = "plant-disease-classifier"
+version = "0.1.0"
+description = "FastAPI server for plant disease classification using CNN and Groq AI feedback - accepts ImageKit URLs"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "python-multipart",
+    "torch",
+    "torchvision",
+    "pillow",
+    "groq",
+    "python-dotenv",
+    "requests",
+]
+
+[tool.uv]
+package = false
