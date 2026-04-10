@@ -29,14 +29,22 @@ app.add_middleware(
 
 # Global models dictionary to be loaded on startup
 loaded_models = {}
-
 @app.on_event("startup")
 async def startup_event():
     global loaded_models
+    print("=== STARTUP: Loading models ===")
+
     for version, config in MODEL_VERSIONS.items():
-        m = load_model(config["path"], config["type"])
+        path = config["path"]
+        print(f"Loading model {version} from {path}")
+        m = load_model(path, config["type"])
         if m is not None:
             loaded_models[version] = m
+            print(f"✅ Model {version} loaded")
+        else:
+            print(f"❌ Model {version} NOT loaded (file not found or failed to load)")
+    
+    print("=== loaded_models =", loaded_models)
 
 @app.get("/")
 async def root():
