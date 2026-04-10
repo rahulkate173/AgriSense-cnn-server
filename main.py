@@ -6,7 +6,7 @@ from config import MODEL_VERSIONS, DEFAULT_VERSION
 from ai_service import get_ai_feedback
 from typing import Dict, Any
 from pydantic import BaseModel
-
+import os 
 # Request model for ImageKit URLs
 class ImageRequest(BaseModel):
     image_url: str = Query(..., description="ImageKit URL of the image to classify")
@@ -78,4 +78,6 @@ async def predict(
         raise HTTPException(status_code=500, detail=f"Prediction error: {str(e)}")
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False)
+    # This reads the PORT env var, or defaults to 8000 if it's missing
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)

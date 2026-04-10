@@ -26,4 +26,5 @@ COPY . .
 EXPOSE 8000
 
 # Start the application
-CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "${PORT:-8000}"]
+# We use 'uv run' to ensure we're using the virtual environment managed by uv
+CMD ["uv", "run", "python", "main.py"]
