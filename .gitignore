@@ -10,11 +10,6 @@ venv/
 ENV/
 .env
 
-# Model Weights (Large Files) - Exclude checkpoints but keep best model
-models/checkpoint_*.pth
-best_efficientnet.pth
-*.pt
-# ✅ DO NOT IGNORE: models/best_model.pth is needed for production
 
 # uv Package Manager
 .uv/
