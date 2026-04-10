@@ -9,8 +9,6 @@ GROQ_MODEL = "llama-3.3-70b-versatile" # High quality model available on Groq
 
 # Model Configuration
 MODEL_VERSIONS = {
-    "v1": {"path": "best_efficientnet.pth", "type": "efficientnet"},
-    "v2": {"path": "models/best_model.pth", "type": "plantcnn"},
     "latest": {"path": "models/best_model.pth", "type": "plantcnn"}
 }
 DEFAULT_VERSION = "latest"
