@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+.env
+
+# Model Weights (Large Files)
+*.pth
+*.pt
+best_efficientnet.pth
+
+# uv Package Manager
+.uv/
+uv.lock
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Developer specific
+.vscode/
+.idea/
+
+checkpoint
